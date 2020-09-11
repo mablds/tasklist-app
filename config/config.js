@@ -1,17 +1,25 @@
-require('dotenv').config()
-const express = require('express')
-const cors = require('cors')
+require('dotenv').config();
 
-module.exports.setUpServer = () => {
-    const app = express()
-
-    app.use(express.json())
-    app.use(cors())
-    //app.use(require('../controllers'))
-
-    app.get('/', (req, res) => {
-        res.send('teste');
-    })
-
-    return app
+module.exports = {
+  "development": {
+    "username": process.env.MYSQL_DEV_USER,
+    "password": process.env.MYSQL_DEV_PASSWORD,
+    "database": process.env.MYSQL_DEV_DB,
+    "host": process.env.MYSQL_DEV_HOST,
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": process.env.MYSQL_TEST_USER,
+    "password": process.env.MYSQL_TEST_PASSWORD,
+    "database": process.env.MYSQL_TEST_DB,
+    "host": process.env.MYSQL_TEST_HOST,
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": process.env.MYSQL_PROD_USER,
+    "password": process.env.MYSQL_PROD_PASSWORD,
+    "database": process.env.MYSQL_PROD_DB,
+    "host": process.env.MYSQL_PROD_HOST,
+    "dialect": "mysql"
+  }
 }
