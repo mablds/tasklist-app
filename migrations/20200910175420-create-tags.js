@@ -8,12 +8,15 @@ module.exports = {
         type: Sequelize.UUID
       },
       name: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       count: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       active: {
+        allowNull: false,
         type: Sequelize.BOOLEAN
       },
       createdAt: {

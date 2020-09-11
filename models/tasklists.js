@@ -1,19 +1,13 @@
 'use strict';
 
-const uuid = require('uuid/v4');
+const uuid = require('uuid');
+const { Model } = require('sequelize');
 
-const {
-  Model
-} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class TaskLists extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+
     static associate(models) {
-      // define association here
+      
     }
   };
   TaskLists.init({
@@ -23,8 +17,11 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'TaskLists',
   });
+
   TaskLists.beforeCreate((taskList, _) => {
-    return taskList.id = uuid();
+    // Before Creating, uuid is generated using the uuid lib and returned to Sequelize Object id's
+    return taskList.id = uuid.v4();
   })
+
   return TaskLists;
 };

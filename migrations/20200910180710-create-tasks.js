@@ -8,6 +8,7 @@ module.exports = {
         type: Sequelize.UUID
       },
       title: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       notes: {
@@ -23,15 +24,19 @@ module.exports = {
         type: Sequelize.STRING
       },
       status: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       task_list: {
+        allowNull: false,
         type: Sequelize.UUID
       },
       tags: {
+        allowNull: false,
         type: Sequelize.UUID
       },
       active: {
+        allowNull: false,
         type: Sequelize.BOOLEAN
       },
       createdAt: {
