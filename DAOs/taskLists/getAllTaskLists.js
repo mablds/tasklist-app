@@ -1,7 +1,7 @@
 // Model import
 const database = require('../../models')
 
-//FindAll
+//FindAll TaskLists
 module.exports = async () => {
     try {
         const taskLists = await database.TaskLists.findAll({
