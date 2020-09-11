@@ -1,29 +1,25 @@
 const router = require('express').Router()
+const uuid = require('uuid')
 
-//DAOs import
-const createTaskList = require('../../DAOs/taskLists/createOneTaskList')
-const getAllTaskLists = require('../../DAOs/taskLists/getAllTaskLists')
+//Handlers import
+const getOneTaskList = require('./getOneTaskList')
+const getAllTaskLists = require('./getAllTaskLists')
+const createTaskList = require('./createTaskList')
 
-//Get All TaskLists
-router.get('/', async (req, res) => {
-    const findAllTaskLists = await getAllTaskLists()
-    res.status(findAllTaskLists.status).json(findAllTaskLists)
+//Endpoints router
+router.get('/', getAllTaskLists)
+router.post('/', createTaskList)
+router.get('/:id', getOneTaskList)
+
+//Update One TaskList
+router.put('/:id', async (req, res) => {
+
 })
 
-//Get One TaskList
-router.get('/:id', (req, res) => {
-    
+//Delete One TaskList
+router.delete('/:id', async (req, res) => {
+
 })
 
-
-//Create TaskList
-router.post('/', async (req, res) => {
-    if(req.body.name) {
-        const createList = await createTaskList(req.body);
-        res.status(createList.status).json(createList);
-    } else {
-        res.status(400).json({ status: 400, msg: `Invalid body! Please check the documentation.` })
-    }
-})
 
 module.exports = router
