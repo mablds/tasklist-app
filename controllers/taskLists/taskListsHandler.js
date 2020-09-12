@@ -1,5 +1,4 @@
 const router = require('express').Router()
-const uuid = require('uuid')
 
 //Handlers import
 const getOneTaskList = require('./getOneTaskList')
