@@ -1,6 +1,5 @@
-// Express imports
-const express = require('express')
-const router = express.Router()
+// Router import
+const router = require('express').Router()
 
 // Handlers
 const taskListHandler = require('./taskLists/taskListsHandler')
