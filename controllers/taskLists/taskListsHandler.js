@@ -8,14 +8,13 @@ const updateTaskList = require('./updateOneTaskList')
 const deleteTaskList = require('./deleteOneTaskList')
 
 //Midlewares import
-const uuidValidate = require('../../middlewares/uuidValidateParam')
+const uuidValidateMiddleware = require('../../middlewares/uuidValidateParam')
 
 //Endpoints router
 router.get('/', getAllTaskLists)
 router.post('/', createTaskList)
-router.get('/:id', uuidValidate, getOneTaskList)
-router.put('/:id', uuidValidate, updateTaskList)
-router.delete('/:id', uuidValidate, deleteTaskList)
-
+router.get('/:id', uuidValidateMiddleware, getOneTaskList)
+router.put('/:id', uuidValidateMiddleware, updateTaskList)
+router.delete('/:id', uuidValidateMiddleware, deleteTaskList)
 
 module.exports = router
