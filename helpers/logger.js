@@ -6,25 +6,28 @@ module.exports.logger =  winston.createLogger({
       level: 'info',
       filename: './logs/tivit-task-list.log',
       json: true,
-      format: winston.format.combine(winston.format.colorize(), winston.format.timestamp(), winston.format.json())
+      format: winston.format.combine(winston.format.timestamp(), winston.format.json())
     }),
+
     new winston.transports.File({
       level: 'error',
       filename: './logs/tivit-task-list.log',
       json: true,
-      format: winston.format.combine(winston.format.colorize(), winston.format.timestamp(), winston.format.json())
+      format: winston.format.combine(winston.format.timestamp(), winston.format.json())
     }),
+
     new winston.transports.File({
       level: 'warn',
       filename: './logs/tivit-task-list.log',
       json: true,
-      format: winston.format.combine(winston.format.colorize(), winston.format.timestamp(), winston.format.json())
+      format: winston.format.combine(winston.format.timestamp(), winston.format.json())
     }),
+
     new winston.transports.File({
       level: 'debug',
-      filename: './logs/tivit-task-list-debug.log',
+      filename: './logs/tivit-task-list.log',
       json: true,
-      format: winston.format.combine(winston.format.colorize(), winston.format.timestamp(), winston.format.json())
+      format: winston.format.combine(winston.format.timestamp(), winston.format.json())
     })
   ]
 });
