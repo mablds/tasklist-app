@@ -31,3 +31,8 @@ module.exports.logger =  winston.createLogger({
     })
   ]
 });
+
+//setting up the obj with Stream write function to log morgan output in winston logs
+module.exports.morganToWinstonStream = {
+    write: text => this.logger.info(text)
+}
