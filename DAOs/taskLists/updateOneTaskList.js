@@ -18,13 +18,15 @@ module.exports = async (id, infosToUpdate) => {
                 { where: { id } }
             );
 
-            logger.debug({ status: 200, msg: `TaskList updated successfully!`, function: 'DAO - deleteOneTaskList' })
+            logger.debug({ status: 200, msg: `TaskList updated successfully!`, function: 'DAO - updateOneTaskList' })
             return { status: 200, msg: `TaskList updated successfully!` }
         } catch (error) {
-            return { status: 500, msg: error.message }
+            logger.error({ status: 500, msg: error, function: 'DAO - updateOneTaskList' })
+            return { status: 500, msg: error }
         }
 
     } catch (error) {
-        return { status: 404, msg: error.message }
+        logger.error({ status: 404, msg: 'Unable to find the TaskList informed', error , function: 'DAO - updateOneTaskList' })
+        return { status: 404, msg: 'Unable to find the TaskList informed', error }
     }
 }
