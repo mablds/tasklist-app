@@ -8,21 +8,24 @@ module.exports = async (id, infosToUpdate) => {
     // verify if the id searched really exists. It just try to update. 
     // If the instance doesnt exists, it return success.
     try {
-        const taskListToRemove = await database.TaskLists.findAll(
-            { where: { id } }
+        await database.TaskLists.findAll(
+            { where: { id, active: true } }
         )
 
         try {
-            const taskListUpdated = await database.TaskLists.update(
+            await database.TaskLists.update(
                 infosToUpdate,
                 { where: { id } }
             );
 
             logger.debug({ status: 200, msg: `TaskList updated successfully!`, function: 'DAO - updateOneTaskList' })
             return { status: 200, msg: `TaskList updated successfully!` }
+
         } catch (error) {
+
             logger.error({ status: 500, msg: error, function: 'DAO - updateOneTaskList' })
             return { status: 500, msg: error }
+            
         }
 
     } catch (error) {
