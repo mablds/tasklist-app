@@ -9,12 +9,12 @@ module.exports = async (id) => {
     // If the instance doesnt exists, it return success.
     try {
         const taskListToRemove = await database.TaskLists.findAll({
-            where: { id }
+            where: { id, active: true }
         })
 
         if(taskListToRemove.active) { //If taskList is active...
             try {
-                const taskListRemoved = await database.TaskLists.update(
+                await database.TaskLists.update(
                     { active: false },
                     { where: { id } }
                 );
