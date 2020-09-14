@@ -1,5 +1,6 @@
 // Model import
 const database = require('../../models')
+const { logger } = require('../../helpers/logger')
 
 //Delete One TaskList
 module.exports = async (id) => {
@@ -17,13 +18,15 @@ module.exports = async (id) => {
                     { active: false },
                     { where: { id } }
                 );
-        
+                logger.debug({ status: 200, msg: `TaskList removed successfully!`, function: 'DAO - deleteOneTaskList' })
                 return { status: 200, msg: `TaskList removed successfully!` }
                 
             } catch(error) {
-                return { status: 500, msg: `Internal error` }
+                logger.error({ status: 500, msg: error, function: 'DAO - deleteOneTaskList' })
+                return { status: 500, msg: error }
             }
         } else { //The TaskList is already inactive
+            logger.debug({ status: 400, msg: `TaskList already deleted!`, function: 'DAO - deleteOneTaskList' })
             return { status: 400, msg: `TaskList already deleted!` }
         }
 

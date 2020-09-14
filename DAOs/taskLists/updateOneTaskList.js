@@ -1,5 +1,6 @@
 // Model import
 const database = require('../../models')
+const { logger } = require('../../helpers/logger')
 
 //Update One TaskList
 module.exports = async (id, infosToUpdate) => {
@@ -17,8 +18,8 @@ module.exports = async (id, infosToUpdate) => {
                 { where: { id } }
             );
 
-            return { status: 200, taskListUpdated}
-        
+            logger.debug({ status: 200, msg: `TaskList updated successfully!`, function: 'DAO - deleteOneTaskList' })
+            return { status: 200, msg: `TaskList updated successfully!` }
         } catch (error) {
             return { status: 500, msg: error.message }
         }
