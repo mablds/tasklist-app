@@ -1,12 +1,13 @@
 // Model import
 const database = require('../../models')
+const { Op } = require("sequelize");
 const { logger } = require('../../helpers/logger')
 
 //Find One TaskList
 module.exports = async (id) => {
     try {
         const taskList = await database.TaskLists.findAll({
-            where: { 
+            where: {
                 [Op.and]: [
                     { id },
                     { active: true }
@@ -17,7 +18,7 @@ module.exports = async (id) => {
         logger.debug({ status: 200, taskList, function: 'DAO - getOneTaskList' })
         return { status: 200, taskList }
     } catch (error) {
-        logger.error({ status: 500, msg: error, function: 'DAO - getOneTaskList' })
-        return { status: 500, msg: error }
+        logger.error({ status: 500, msg: error.message, function: 'DAO - getOneTaskList' })
+        return { status: 500, msg: error.message }
     }
 }
