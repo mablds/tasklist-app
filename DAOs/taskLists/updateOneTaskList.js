@@ -8,11 +8,16 @@ module.exports = async (id, infosToUpdate) => {
     // verify if the id searched really exists. It just try to update. 
     // If the instance doesnt exists, it return success.
     try {
-        await database.TaskLists.findAll(
-            { where: { id, active: true } }
-        )
+        await database.TaskLists.findAll({ 
+            where: {
+                [Op.and]: [
+                  { id },
+                  { active: true }
+                ]
+            }
+        })
 
-        try {
+        try { //TaskList Update
             await database.TaskLists.update(
                 infosToUpdate,
                 { where: { id } }
@@ -22,13 +27,14 @@ module.exports = async (id, infosToUpdate) => {
             return { status: 200, msg: `TaskList updated successfully!` }
 
         } catch (error) {
-
+            //Unable to Update TaskList
             logger.error({ status: 500, msg: error, function: 'DAO - updateOneTaskList' })
             return { status: 500, msg: error }
             
         }
 
     } catch (error) {
+        //Unable to find a TaskList active and with equal id
         logger.error({ status: 404, msg: 'Unable to find the TaskList informed', error , function: 'DAO - updateOneTaskList' })
         return { status: 404, msg: 'Unable to find the TaskList informed', error }
     }
