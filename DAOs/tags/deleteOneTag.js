@@ -9,7 +9,7 @@ module.exports = async (id) => {
     // If the instance doesnt exists, it return success.
     try {
         const tagToRemove = await database.Tags.findAll({
-            where: { id, active: true }
+            where: { id }
         })
 
         if(tagToRemove.active) { //If tag is active...

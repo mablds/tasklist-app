@@ -8,9 +8,14 @@ module.exports = async (id, infosToUpdate) => {
     // verify if the id searched really exists. It just try to update. 
     // If the instance doesnt exists, it return success.
     try {
-        await database.Tags.findAll(
-            { where: { id, active: true } }
-        )
+        await database.Tags.findAll({
+            where: {
+                [Op.and]: [
+                  { id },
+                  { active: true }
+                ]
+            }
+        })
 
         try {
             await database.Tags.update(

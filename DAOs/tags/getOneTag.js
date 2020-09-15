@@ -5,7 +5,12 @@ const { logger } = require('../../helpers/logger')
 module.exports = async (id) => {
     try {
         const tags = await database.Tags.findAll({
-            where: { active: true, id }
+            where: { 
+                [Op.and]: [
+                    { id },
+                    { active: true }
+                ]
+            }
         });
 
         logger.debug({ status: 200, tags, function: 'DAO - GetAllTags'})

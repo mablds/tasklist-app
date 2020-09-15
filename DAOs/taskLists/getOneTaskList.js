@@ -6,7 +6,12 @@ const { logger } = require('../../helpers/logger')
 module.exports = async (id) => {
     try {
         const taskList = await database.TaskLists.findAll({
-            where: { id, active: true }
+            where: { 
+                [Op.and]: [
+                    { id },
+                    { active: true }
+                ]
+            }
         });
 
         logger.debug({ status: 200, taskList, function: 'DAO - getOneTaskList' })
