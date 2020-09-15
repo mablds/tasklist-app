@@ -4,7 +4,7 @@ const updateOneTagDAO = require('../../DAOs/tags/updateOneTag')
 //Update Tag Endpoint
 module.exports = async (req, res) => {
 //Update One Task list Endpoint
-    if(req.body.name || req.body.active) {
+    if(req.body.name) {
         const updateTag = await updateOneTagDAO(req.params.id, req.body.name)
         res.status(updateTag.status).json({ 
             status: updateTag.status, 
