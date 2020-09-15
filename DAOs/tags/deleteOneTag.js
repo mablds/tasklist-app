@@ -14,16 +14,24 @@ module.exports = async (id) => {
 
         if(tagToRemove.active) { //If tag is active...
             try {
+                //Tags table
                 await database.Tags.update(
                     { active: false },
                     { where: { id } }
                 );
+
+                //TaskTags table
+                await database.TaskTags.update(
+                    { active: false },
+                    { where: { tag_id: id } }
+                )
+
                 logger.debug({ status: 200, msg: `Tag removed successfully!`, function: 'DAO - deleteOneTag' })
                 return { status: 200, msg: `Tag removed successfully!` }
                 
             } catch(error) {
-                logger.error({ status: 500, msg: error, function: 'DAO - deleteOneTag' })
-                return { status: 500, msg: error }
+                logger.error({ status: 500, msg: error.message, function: 'DAO - deleteOneTag' })
+                return { status: 500, msg: error.message }
             }
         } else { //The tag is already inactive
             logger.debug({ status: 400, msg: `Tag already deleted!`, function: 'DAO - deleteOneTag' })

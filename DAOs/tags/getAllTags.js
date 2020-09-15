@@ -5,16 +5,14 @@ const { logger } = require('../../helpers/logger')
 module.exports = async () => {
     try {
         const tags = await database.Tags.findAll({
-            where: {
-                active: true
-            }
+            where: { active: true }
         });
-        
+
         logger.debug({ status: 200, tags, function: 'DAO - GetAllTags'})
         return { status: 200, tags }
         
     } catch (error) {
-        logger.error({ status: 500, msg: error, function: 'DAO - GetAllTags'})
-        return { status: 500, msg: error }
+        logger.error({ status: 500, msg: error.message, function: 'DAO - GetAllTags'})
+        return { status: 500, msg: error.message }
     }
 }

@@ -1,22 +1,29 @@
 const database = require('../../models')
+const { Op } = require("sequelize");
 const { logger } = require('../../helpers/logger')
 
 //FindAll TaskLists
-module.exports = async (id) => {
+module.exports = async (name) => {
     try {
         const tags = await database.Tags.findAll({
-            where: { 
+            where: {    
                 [Op.and]: [
-                    { id },
+                    { name },
                     { active: true }
                 ]
             }
         });
 
-        logger.debug({ status: 200, tags, function: 'DAO - GetAllTags'})
-        return { status: 200, tags }
+        if(tags.length > 0) {
+            logger.debug({ status: 200, tag: tags, function: 'DAO - GetOneTag'})
+            return { status: 200, tag: tags }
+        } else {
+            logger.error({ status: 404, msg: 'Tag not Found', function: 'DAO - GetOneTag'})
+            return { status: 404, msg: 'Tag not Found' }
+        }
+
     } catch (error) {
-        logger.error({ status: 500, msg: error, function: 'DAO - GetAllTags'})
-        return { status: 500, msg: error }
+        logger.error({ status: 500, msg: error.message, function: 'DAO - GetOneTag'})
+        return { status: 500, msg: error.message }
     }
 }
