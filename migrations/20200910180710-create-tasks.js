@@ -31,10 +31,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.UUID
       },
-      tags: {
-        allowNull: false,
-        type: Sequelize.UUID
-      },
       active: {
         allowNull: false,
         type: Sequelize.BOOLEAN
