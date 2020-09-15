@@ -18,7 +18,7 @@ module.exports = async (id) => {
                 await database.Tags.update(
                     { active: false },
                     { where: { id } }
-                );
+                )
 
                 //TaskTags table
                 await database.TaskTags.update(
