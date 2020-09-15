@@ -1,7 +1,7 @@
 const database = require('../../models')
 const { logger } = require('../../helpers/logger')
 
-//FindAll TaskLists
+//FindAll Tags
 module.exports = async () => {
     try {
         const tags = await database.Tags.findAll({
