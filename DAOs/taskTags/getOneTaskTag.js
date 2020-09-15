@@ -1,4 +1,5 @@
 const database = require('../../models')
+const { Op } = require('sequelize')
 const { logger } = require('../../helpers/logger')
 
 //FindAll TaskTags
@@ -7,7 +8,7 @@ module.exports = async (id) => {
         const taskTag = await database.TaskTags.findAll({
             where: { 
                 [Op.and]: [
-                    { id },
+                    { task_id: id },
                     { active: true }
                 ]
             }
