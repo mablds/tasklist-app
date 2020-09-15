@@ -18,7 +18,6 @@ module.exports = (sequelize, DataTypes) => {
     activity_type: DataTypes.STRING,
     status: DataTypes.STRING,
     task_list: DataTypes.INTEGER,
-    tags: DataTypes.INTEGER,
     active: DataTypes.BOOLEAN
   }, {
     sequelize,
