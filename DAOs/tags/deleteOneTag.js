@@ -12,7 +12,7 @@ module.exports = async (id) => {
             where: { id }
         })
 
-        if(tagToRemove.active) { //If tag is active...
+        if(tagToRemove[0].dataValues.active) { //If tag is active...
             try {
                 //Tags table
                 await database.Tags.update(
