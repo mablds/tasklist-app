@@ -10,15 +10,16 @@ module.exports = async (id, infosToUpdate) => {
     // verify if the id searched really exists. It just try to update. 
     // If the instance doesnt exists, it return success.
     try {
-        await database.Task.findAll({
+        await database.Tasks.findAll({
             where: { id }
         })
 
         try {
-            await database.Task.update(
+            await database.Tasks.update(
                 { infosToUpdate },
                 { where: { id } }
             );
+            
             logger.debug({ status: 200, msg: `Task updated successfully!`, function: 'DAO - UpdateOneTask' })
             return { status: 200, msg: `Task updated successfully!` }
             
