@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     notes: DataTypes.STRING,
     priority: DataTypes.INTEGER,
     remind_me_on: DataTypes.DATE,
-    activity_type: DataTypes.STRING,
-    status: DataTypes.STRING,
+    activity_type: DataTypes.ENUM,
+    status: DataTypes.ENUM,
     task_list: DataTypes.INTEGER,
     active: DataTypes.BOOLEAN
   }, {

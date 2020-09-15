@@ -21,11 +21,13 @@ module.exports = {
         type: Sequelize.DATE
       },
       activity_type: {
-        type: Sequelize.STRING
+        type: Sequelize.ENUM,
+        values: ['indoors', 'outdoors']
       },
       status: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.ENUM,
+        values: ['open', 'done']
       },
       task_list: {
         allowNull: false,
