@@ -4,7 +4,7 @@ const { Op } = require("sequelize");
 const { logger } = require('../../helpers/logger')
 
 //Update One Tag
-module.exports = async (id) => {
+module.exports = async (id, increase) => {
     // I created these two try catch blocks because the MODEL.update method doesnt 
     // verify if the id searched really exists. It just try to update. 
     // If the instance doesnt exists, it return success.
@@ -20,7 +20,7 @@ module.exports = async (id) => {
 
         try {
             await database.Tags.update(
-                { count: tag[0].dataValues.count + 1 },
+                { count: increase ? tag[0].dataValues.count + 1 : tag[0].dataValues.count - 1 },
                 { where: { id } }
             );
 
