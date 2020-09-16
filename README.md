@@ -393,3 +393,20 @@ Params: Valid UUID.
 ```
 
 </details>
+
+
+
+
+## Middlewares
+
+Theres an UUID Validate Middleware to all requests sent using UUID as Params. If the UUID informed isnt valid, it rejects the request, and returns status 400.
+
+It also log the attempt as a Warn level.
+
+## Logs
+
+All the logs are stored in a file on logs/. The logger module were created using Winston and Morgan. Winston do all the work to write the stdout in the file with the correct level. And Morgan uses Winston to store all the logs generated in the requests as a express middleware.
+
+## Tests
+
+Working on progress.
