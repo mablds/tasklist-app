@@ -49,12 +49,82 @@ The endpoints were created following the instructions of the challenge descripti
 |PUT|taskList/:id|Update informations of a TaskList|Successfull message|200|
 |DELETE|taskList/:id|Delete a TaskList|Successfull message|200|
 
-</details>
+#### GET taskList/
+Select all the taskLists active on DB:
 
 <details>
-<summary>tasks/</summary>
+<summary>- Request expected:</summary>
+
+No informations required. Just the request.
+
+</details>
+<details>
+<summary>- Reponse expected:</summary>
+
+```
+{
+    "status": 200,
+    "taskLists": [
+        {
+            "id": "4d82fdc6-bafa-4750-b7da-59f5658a1ecf",
+            "name": "Projeto Integrador - SENAC",
+            "active": true,
+            "createdAt": "2020-09-16T03:01:13.000Z",
+            "updatedAt": "2020-09-16T03:01:13.000Z"
+        },
+        {
+            "id": "d1875f07-5888-4965-9725-9d3e66a67d91",
+            "name": "Certificações",
+            "active": true,
+            "createdAt": "2020-09-16T15:03:26.000Z",
+            "updatedAt": "2020-09-16T15:03:26.000Z"
+        }
+    ]
+}
+```
+</details>
+
+#### GET taskList/:id
+Select one taskLists active on DB
+
+- Request expected:
+
+- Reponse expected:
+
+#### POST taskList/
+
+- Request expected:
+
+- Reponse expected:
+
+#### PUT taskList/:id
+
+- Request expected:
+
+- Reponse expected:
+
+#### DELETE taskList/:id
+
+- Request expected:
+
+- Reponse expected:
+
 </details>
 
 <details>
 <summary>tags/</summary>
+
+### HTTP Communications available:
+|Methods|Routes|Action|Response expected|Status Code|
+|:----------:|:-----:|:---:|:-----:|:----:|
+|GET|taskList/|Select all the taskLists active on DB|taskList array|200|
+|GET|taskList/:id|Select one taskLists active on DB|taskList object|200|
+|POST|taskList/|Create a TaskList in DB|taskList object created| 201|
+|PUT|taskList/:id|Update informations of a TaskList|Successfull message|200|
+|DELETE|taskList/:id|Delete a TaskList|Successfull message|200|
+</details>
+
+
+<details>
+<summary>tasks/</summary>
 </details>
