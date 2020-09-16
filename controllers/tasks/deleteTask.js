@@ -25,7 +25,7 @@ module.exports = async (req, res) => {
             if(selectTag.tag){
                 selectTag.tag.forEach(async el2 => {
                     //I disliked the complexity of this algorithm, but i really didnt have time to improve it. Sorry! :(
-                    el2.dataValues.count == 0 ? await deleteTag(el2.dataValues.task_id) : await updateCountTag(el2.dataValues.id, false) //increase count = false
+                    el2.dataValues.count <= 1 ? await deleteTag(el2.dataValues.task_id) : await updateCountTag(el2.dataValues.id, false) //increase count = false
                 })
             }
         })
