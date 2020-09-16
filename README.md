@@ -49,8 +49,8 @@ The endpoints were created following the instructions of the challenge descripti
 |PUT|taskList/:id|Update informations of a TaskList|Successfull message|200|
 |DELETE|taskList/:id|Delete a TaskList|Successfull message|200|
 
-#### GET taskList/
 <details>
+<summary> #### GET taskList/ </summary>
 
 Select all the taskLists active on DB:
 
@@ -83,8 +83,8 @@ No informations required. Just the request.
 ```
 </details>
 
-#### GET taskList/:id
 <details>
+<summary>#### GET taskList/:id</summary>
 
 Select one taskLists active on DB
 
@@ -109,8 +109,8 @@ Params: Valid UUID;
 
 </details>
 
-#### POST taskList/
 <details>
+<summary>#### POST taskList/</summary>
 Create a TaskList in DB.
 
 - Request expected:
@@ -139,8 +139,8 @@ Request Body:
 ```
 </details>
 
-#### PUT taskList/:id
 <details>
+<summary>#### PUT taskList/:id</summary>
 Update informations of a TaskList.
 
 - Request expected:
@@ -163,8 +163,8 @@ Request body:
 ```
 </details>
 
-#### DELETE taskList/:id
 <details>
+<summary>#### DELETE taskList/:id</summary>
 Delete a TaskList.
 
 - Request expected:
