@@ -177,6 +177,7 @@ Request Params: Valid UUID.
     "msg": "TaskList update successfully!"
 }
 ```
+</details>
 
 </details>
 
