@@ -2,13 +2,13 @@
 const database = require('../../models')
 const { logger } = require('../../helpers/logger')
 
-//Delete One Task
+//Delete One TaskTag
 module.exports = async (id) => {
     // I created these two try catch blocks because the MODEL.update method doesnt 
     // verify if the id searched really exists. It just try to update. 
     // If the instance doesnt exists, it return success.
     try {
-        const taskToRemove = await database.TaskTags.findAll({
+        const taskToRemove = await database.TaskTags.findOne({
             where: { id }
         })
 
