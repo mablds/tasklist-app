@@ -5,13 +5,8 @@ const { logger } = require('../../helpers/logger')
 module.exports = async (id) => {
     try {
         const task = await database.Tasks.findAll({
-            where: {
-                [Op.and]: [
-                    { id },
-                    { active: true }
-                ]
-            }
-        });
+            where: { task_list: id, active: true }
+        })
         
         logger.debug({ status: 200, task, function: 'DAO - GetAllTasks'})
         return { status: 200, task }
