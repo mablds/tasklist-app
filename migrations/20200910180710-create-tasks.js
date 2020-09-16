@@ -31,7 +31,8 @@ module.exports = {
       },
       task_list: {
         allowNull: false,
-        type: Sequelize.UUID
+        type: Sequelize.UUID,
+        references: { model: "TaskLists", key: "id" }
       },
       active: {
         allowNull: false,

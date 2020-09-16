@@ -5,13 +5,12 @@ const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   class TaskTags extends Model {
-    static associate(models) {
-      // define association here
+    static associate({ Tasks, Tags }) {
+      TaskTags.belongsTo(Tasks, { foreignKey: "task_id" }) // N * M > TaskTags
+      TaskTags.belongsTo(Tags, { foreignKey: "tag_id" }) // 1 * N > TaskTags
     }
   };
   TaskTags.init({
-    task_id: DataTypes.UUID,
-    tag_id: DataTypes.UUID,
     active: DataTypes.BOOLEAN
   }, {
     sequelize,

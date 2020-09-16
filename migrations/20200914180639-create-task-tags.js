@@ -10,11 +10,13 @@ module.exports = {
       },
       task_id: {
         allowNull: false,
-        type: Sequelize.UUID
+        type: Sequelize.UUID,
+        references: { model: "Tasks", key: "id" }
       },
       tag_id: {
         allowNull: false,
-        type: Sequelize.UUID
+        type: Sequelize.UUID,
+        references: { model: "Tags", key: "id" }
       },
       active: {
         allowNull: false,

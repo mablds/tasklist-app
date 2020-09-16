@@ -6,8 +6,8 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Tags extends Model {
 
-    static associate(models) {
-      
+    static associate({ TaskTags, Tasks }) {
+      Tags.hasMany(TaskTags, { foreignKey: "tag_id" }) // 1 * N > TaskTags
     }
   };
   Tags.init({

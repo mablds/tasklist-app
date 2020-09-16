@@ -6,8 +6,8 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class TaskLists extends Model {
 
-    static associate(models) {
-      
+    static associate({ Tasks }) {
+      TaskLists.belongsTo(Tasks, { foreignKey: "id" })
     }
   };
   TaskLists.init({
