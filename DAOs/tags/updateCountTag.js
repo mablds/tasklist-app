@@ -1,6 +1,5 @@
 // Model import
 const database = require('../../models')
-const { Op } = require("sequelize");
 const { logger } = require('../../helpers/logger')
 
 //Update One Tag
@@ -10,12 +9,7 @@ module.exports = async (id, increase) => {
     // If the instance doesnt exists, it return success.
     try {
         const tag = await database.Tags.findAll({
-            where: {                
-                [Op.and]: [
-                    { id },
-                    { active: true }
-                ]
-            }
+            where: { id, active: true }
         })
 
         try {
