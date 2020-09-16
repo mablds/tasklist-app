@@ -38,5 +38,23 @@ After this, you need to run the install script to download all the dependencies 
 The endpoints were created following the instructions of the challenge description.
 
 <details>
-<summary>GET /taskList</summary>
+<summary>taskList/</summary>
+
+### HTTP Communications available:
+|Methods|Routes|Action|Response expected|Status Code|
+|:----------:|:-----:|:---:|:-----:|:----:|
+|GET|taskList/|Select all the taskLists active on DB|taskList array|200|
+|GET|taskList/:id|Select one taskLists active on DB|taskList object|200|
+|POST|taskList/|Create a TaskList in DB|taskList object created| 201|
+|PUT|taskList/:id|Update informations of a TaskList|Successfull message|200|
+|DELETE|taskList/:id|Delete a TaskList|Successfull message|200|
+
+</details>
+
+<details>
+<summary>tasks/</summary>
+</details>
+
+<details>
+<summary>tags/</summary>
 </details>
