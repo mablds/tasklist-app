@@ -11,6 +11,7 @@ module.exports = async (name) => {
 
         return { status: 201, msg: 'Tag created!', tag }
     } catch (error) {
+        console.log(error)
         logger.error({ status: 500, msg: error.message, tag: name , function: 'DAO - createOneTag'})
         return { status: 500, msg: error.message, tag: name }
     }
