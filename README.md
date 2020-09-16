@@ -110,6 +110,7 @@ Params: Valid UUID;
 </details>
 
 #### POST taskList/
+<details>
 Create a TaskList in DB.
 
 - Request expected:
@@ -136,8 +137,10 @@ Request Body:
     }
 }
 ```
+</details>
 
 #### PUT taskList/:id
+<details>
 Update informations of a TaskList.
 
 - Request expected:
@@ -158,8 +161,10 @@ Request body:
     "msg": "TaskList updated successfully!"
 }
 ```
+</details>
 
 #### DELETE taskList/:id
+<details>
 Delete a TaskList.
 
 - Request expected:
