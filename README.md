@@ -49,8 +49,9 @@ The endpoints were created following the instructions of the challenge descripti
 |PUT|taskList/:id|Update informations of a TaskList|Successfull message|200|
 |DELETE|taskList/:id|Delete a TaskList|Successfull message|200|
 
-<details>
 #### GET taskList/
+<details>
+
 Select all the taskLists active on DB:
 
 - Request expected:
@@ -81,30 +82,96 @@ No informations required. Just the request.
 }
 ```
 </details>
+
 #### GET taskList/:id
+<details>
+
 Select one taskLists active on DB
 
 - Request expected:
 
+Params: Valid UUID;
+
 - Reponse expected:
+
+```
+{
+    "status": 200,
+    "taskList": {
+        "id": "561ab6f4-ca55-455d-a72a-a041fcc76606",
+        "name": "Casa",
+        "active": true,
+        "createdAt": "2020-09-16T16:57:52.000Z",
+        "updatedAt": "2020-09-16T16:57:52.000Z"
+    }
+}
+```
+
+</details>
 
 #### POST taskList/
+Create a TaskList in DB.
 
 - Request expected:
+Request Body:
+
+```
+{
+    "name": "Casa"
+}
+```
 
 - Reponse expected:
+
+```
+{
+    "status": 201,
+    "msg": "TaskList created!",
+    "taskList": {
+        "id": "561ab6f4-ca55-455d-a72a-a041fcc76606",
+        "name": "Casa",
+        "active": true,
+        "updatedAt": "2020-09-16T16:57:52.560Z",
+        "createdAt": "2020-09-16T16:57:52.560Z"
+    }
+}
+```
 
 #### PUT taskList/:id
+Update informations of a TaskList.
 
 - Request expected:
+Request params: Valid UUID.
+Request body:
+
+```
+{
+    "name": "Kung Fu"
+}
+```
 
 - Reponse expected:
+
+```
+{
+    "status": 200,
+    "msg": "TaskList updated successfully!"
+}
+```
 
 #### DELETE taskList/:id
+Delete a TaskList.
 
 - Request expected:
+Request Params: Valid UUID.
 
 - Reponse expected:
+```
+{
+    "status": 200,
+    "msg": "TaskList update successfully!"
+}
+```
 
 </details>
 

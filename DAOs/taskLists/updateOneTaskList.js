@@ -3,23 +3,18 @@ const database = require('../../models')
 const { logger } = require('../../helpers/logger')
 
 //Update One TaskList
-module.exports = async (id, infosToUpdate) => {
+module.exports = async (id, nameToUpdate) => {
     // I created these two try catch blocks because the MODEL.update method doesnt 
     // verify if the id searched really exists. It just try to update. 
     // If the instance doesnt exists, it return success.
     try {
         await database.TaskLists.findAll({ 
-            where: {
-                [Op.and]: [
-                  { id },
-                  { active: true }
-                ]
-            }
+            where: { id, active: true }
         })
 
         try { //TaskList Update
             await database.TaskLists.update(
-                infosToUpdate,
+                { name: nameToUpdate },
                 { where: { id } }
             );
 

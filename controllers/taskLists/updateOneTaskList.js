@@ -3,7 +3,7 @@ const updateOneTaskListDAO = require('../../DAOs/taskLists/updateOneTaskList')
 
 //Update One Task list Endpoint
 module.exports = async (req, res) => {
-    if(req.body.name || req.body.active) {
+    if(req.body.name) {
         const updateTaskList = await updateOneTaskListDAO(req.params.id, req.body.name)
         res.status(updateTaskList.status).json({ 
             status: updateTaskList.status, 
