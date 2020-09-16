@@ -179,23 +179,80 @@ Request Params: Valid UUID.
 |PUT|tags/:id|Update informations of a tag|Successfull message|200|
 |DELETE|tags/:id|Delete a tag|Successfull message|200|
 
-## GET tags/:id
+## GET tags/
+Select all the tags active on BD.
 
+- Request expected:
+
+No extra information needed.
+
+- Response expected:
+```
+{
+    "status": 200,
+    "tags": [
+        {
+            "id": "2191eb89-9fd1-48e5-8754-cb7f708eb651",
+            "name": "Cloud",
+            "count": 2,
+            "active": true,
+            "createdAt": "2020-09-16T03:02:49.000Z",
+            "updatedAt": "2020-09-16T03:03:06.000Z"
+        },
+        {
+            "id": "33a4c88f-d2f4-415f-9955-8954720d90f7",
+            "name": "Java",
+            "count": 2,
+            "active": true,
+            "createdAt": "2020-09-16T03:02:49.000Z",
+            "updatedAt": "2020-09-16T03:03:06.000Z"
+        },
+        {
+            "id": "44773cd9-1e7b-4f2e-a843-2ed852d47261",
+            "name": "React",
+            "count": 2,
+            "active": true,
+            "createdAt": "2020-09-16T03:02:49.000Z",
+            "updatedAt": "2020-09-16T03:03:05.000Z"
+        }
+    ]
+}
+```
 
 ## PUT tags/:id
+Update informations of a tag.
+
+- Request expected:
+
+Params: Valid UUID.
+Body: 
+```
+{
+    "name": "Node.js"
+}
+```
+
+- Response expected:
+```
+{
+    "status": 200,
+    "msg": "Tag updated successfully!"
+}
+```
 
 
 ## DELETE tags/:id
 Delete a Tag.
 
 - Request expected:
-Request Params: Valid UUID.
+
+Params: Valid UUID.
 
 - Reponse expected:
 ```
 {
     "status": 200,
-    "msg": "TaskList deleted successfully!"
+    "msg": "Tag removed successfully!"
 }
 ```
 
