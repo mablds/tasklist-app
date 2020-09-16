@@ -8,7 +8,7 @@ module.exports = async (id) => {
     // verify if the id searched really exists. It just try to update. 
     // If the instance doesnt exists, it return success.
     try {
-        const taskListToRemove = await database.TaskLists.findAll({
+        const taskListToRemove = await database.TaskLists.findOne({
             where: { id }
         })
 

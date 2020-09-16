@@ -260,4 +260,99 @@ Params: Valid UUID.
 
 <details>
 <summary>tasks/</summary>
+
+### HTTP Communications available:
+|Methods|Routes|Action|Response expected|Status Code|
+|:----------:|:-----:|:---:|:-----:|:----:|
+|GET|tasks/|Select all the tasks active from an active TaskList on DB|tasks array|200|
+|POST|tasks/|Create a task in DB|task object created| 201|
+|PUT|tasks/:id|Update informations of a task|Successfull message|200|
+|DELETE|tasks/:id|Delete a task|Successfull message|200|
+
+## GET tasks/
+Select all the tasks active from an active TaskList on DB
+
+- Request expected:
+
+Querystring: Valid UUID.
+Example: tasks/?id=4d82fdc6-bafa-4750-b7da-59f5658a1ecf
+
+- Reponse expected:
+```
+{
+    "status": 200,
+    "task": [
+        {
+            "id": "1dc78e2c-79b5-402c-b445-dea433fd86f8",
+            "title": "DSW - Fabio Tsuda",
+            "notes": "",
+            "priority": 3,
+            "remind_me_on": "2020-11-07T08:03:22.000Z",
+            "activity_type": "indoors",
+            "status": "open",
+            "task_list": "4d82fdc6-bafa-4750-b7da-59f5658a1ecf",
+            "active": true,
+            "createdAt": "2020-09-16T03:02:48.000Z",
+            "updatedAt": "2020-09-16T03:02:48.000Z"
+        },
+        {
+            "id": "2ac4294a-c956-45bc-8d15-7783cb895d00",
+            "title": "ecommerce",
+            "notes": "",
+            "priority": 3,
+            "remind_me_on": "2020-11-07T08:03:22.000Z",
+            "activity_type": "indoors",
+            "status": "open",
+            "task_list": "4d82fdc6-bafa-4750-b7da-59f5658a1ecf",
+            "active": true,
+            "createdAt": "2020-09-16T03:03:04.000Z",
+            "updatedAt": "2020-09-16T03:03:04.000Z"
+        }
+    ]
+}
+```
+
+
+## POST tasks/:id
+Create a task in DB.
+
+- Request expected:
+
+Params: Valid UUID.
+
+- Reponse expected:
+
+
+## PUT tasks/:id
+Delete a Tag.
+
+- Request expected:
+
+Params: Valid UUID.
+
+- Reponse expected:
+```
+{
+    "status": 200,
+    "msg": "Tag removed successfully!"
+}
+```
+
+## DELETE tasks/:id
+Delete a Tag.
+
+- Request expected:
+
+Params: Valid UUID.
+
+- Reponse expected:
+```
+{
+    "status": 200,
+    "msg": "Tag removed successfully!"
+}
+```
+
+
+
 </details>
