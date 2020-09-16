@@ -41,8 +41,6 @@ module.exports = async (req, res) => {
             req.body.tags.forEach(async el => {
                 const tag = await getOneTag.byName(el)
 
-                console.log(tag)
-
                 if (tag.status !== 200) {
                     //if Tag doesnt exists, create tag and create taskTag
                     const tagCreated = await createTag(el)
