@@ -175,13 +175,12 @@ Request Params: Valid UUID.
 ### HTTP Communications available:
 |Methods|Routes|Action|Response expected|Status Code|
 |:----------:|:-----:|:---:|:-----:|:----:|
-|GET|taskList/|Select all the taskLists active on DB|taskList array|200|
-|GET|taskList/:id|Select one taskLists active on DB|taskList object|200|
-|POST|taskList/|Create a TaskList in DB|taskList object created| 201|
-|PUT|taskList/:id|Update informations of a TaskList|Successfull message|200|
-|DELETE|taskList/:id|Delete a TaskList|Successfull message|200|
-</details>
+|GET|tags/|Select all the tags active on DB|tags array|200|
+|GET|tags/:id|Select one tag active on DB|tag object|200|
+|PUT|tags/:id|Update informations of a tag|Successfull message|200|
+|DELETE|tags/:id|Delete a tag|Successfull message|200|
 
+</details>
 
 <details>
 <summary>tasks/</summary>
