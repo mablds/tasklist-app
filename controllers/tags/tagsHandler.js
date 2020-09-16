@@ -12,7 +12,5 @@ const uuidValidateMiddleware = require('../../middlewares/uuidValidateParam')
 router.get('/', getAllTags)
 router.put('/:id', uuidValidateMiddleware, updateOneTag)
 router.delete('/:id', uuidValidateMiddleware, deleteTag)
-// router.patch('/:id', uuidValidateMiddleware, editCountTag)
-
 
 module.exports = router

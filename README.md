@@ -49,7 +49,7 @@ The endpoints were created following the instructions of the challenge descripti
 |PUT|taskList/:id|Update informations of a TaskList|Successfull message|200|
 |DELETE|taskList/:id|Delete a TaskList|Successfull message|200|
 
-#### GET taskList/
+## GET taskList/
 
 Select all the taskLists active on DB:
 
@@ -81,7 +81,7 @@ No informations required. Just the request.
 }
 ```
 
-#### GET taskList/:id
+## GET taskList/:id
 
 Select one taskLists active on DB
 
@@ -104,7 +104,7 @@ Params: Valid UUID;
 }
 ```
 
-#### POST taskList/
+## POST taskList/
 Create a TaskList in DB.
 
 - Request expected:
@@ -132,7 +132,7 @@ Request Body:
 }
 ```
 
-#### PUT taskList/:id
+## PUT taskList/:id
 Update informations of a TaskList.
 
 - Request expected:
@@ -154,7 +154,7 @@ Request body:
 }
 ```
 
-#### DELETE taskList/:id
+## DELETE taskList/:id
 Delete a TaskList.
 
 - Request expected:
@@ -164,7 +164,7 @@ Request Params: Valid UUID.
 ```
 {
     "status": 200,
-    "msg": "TaskList update successfully!"
+    "msg": "TaskList deleted successfully!"
 }
 ```
 </details>
@@ -176,9 +176,28 @@ Request Params: Valid UUID.
 |Methods|Routes|Action|Response expected|Status Code|
 |:----------:|:-----:|:---:|:-----:|:----:|
 |GET|tags/|Select all the tags active on DB|tags array|200|
-|GET|tags/:id|Select one tag active on DB|tag object|200|
 |PUT|tags/:id|Update informations of a tag|Successfull message|200|
 |DELETE|tags/:id|Delete a tag|Successfull message|200|
+
+## GET tags/:id
+
+
+## PUT tags/:id
+
+
+## DELETE tags/:id
+Delete a Tag.
+
+- Request expected:
+Request Params: Valid UUID.
+
+- Reponse expected:
+```
+{
+    "status": 200,
+    "msg": "TaskList deleted successfully!"
+}
+```
 
 </details>
 
