@@ -136,8 +136,8 @@ Request Body:
 Update informations of a TaskList.
 
 - Request expected:
-Request params: Valid UUID.
-Request body:
+Params: Valid UUID.
+Body: Able to change only the name or active status of tag.
 
 ```
 {
@@ -225,7 +225,7 @@ Update informations of a tag.
 - Request expected:
 
 Params: Valid UUID.
-Body: 
+Body: Able to change only the name or active status of tag.
 ```
 {
     "name": "Node.js"
@@ -275,7 +275,9 @@ Select all the tasks active from an active TaskList on DB
 - Request expected:
 
 Querystring: Valid UUID.
+```
 Example: tasks/?id=4d82fdc6-bafa-4750-b7da-59f5658a1ecf
+```
 
 - Reponse expected:
 ```
@@ -318,28 +320,65 @@ Create a task in DB.
 
 - Request expected:
 
-Params: Valid UUID.
+
+Body:
+- title: Necessary
+- status: Necessary
+- tags: Necessary
+- task_list: Necessary
+
+```
+{
+    "title": "ecommerce",
+    "status": "open",
+    "tags": ["React", "Java", "Cloud"],
+    "task_list": "4d82fdc6-bafa-4750-b7da-59f5658a1ecf",
+    "notes": "",
+    "activity_type": "indoors",
+    "priority": 3,
+    "remind_me_on": "2020-11-07 05:03:22"
+}
+```
 
 - Reponse expected:
-
+```
+{
+    "status": 201,
+    "msg": "Task created!",
+    "task": {
+        "id": "9aa88f3d-2a2d-4864-b2ed-aa160bc79303",
+        "title": "Subir no Blackboard",
+        "status": "open",
+        "task_list": "4d82fdc6-bafa-4750-b7da-59f5658a1ecf",
+        "notes": null,
+        "priority": 3,
+        "remind_me_on": "2020-11-07T08:03:22.000Z",
+        "activity_type": "indoors",
+        "active": true,
+        "updatedAt": "2020-09-16T19:21:33.412Z",
+        "createdAt": "2020-09-16T19:21:33.412Z"
+    }
+}
+```
 
 ## PUT tasks/:id
-Delete a Tag.
+Update informations of a task.
 
 - Request expected:
 
 Params: Valid UUID.
+Body: Any information to change on the task.
 
 - Reponse expected:
 ```
 {
     "status": 200,
-    "msg": "Tag removed successfully!"
+    "msg": "Task updated successfully!"
 }
 ```
 
 ## DELETE tasks/:id
-Delete a Tag.
+Delete a Task.
 
 - Request expected:
 
@@ -349,10 +388,8 @@ Params: Valid UUID.
 ```
 {
     "status": 200,
-    "msg": "Tag removed successfully!"
+    "msg": "Task removed successfully!"
 }
 ```
-
-
 
 </details>
