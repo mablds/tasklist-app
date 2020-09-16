@@ -49,17 +49,15 @@ The endpoints were created following the instructions of the challenge descripti
 |PUT|taskList/:id|Update informations of a TaskList|Successfull message|200|
 |DELETE|taskList/:id|Delete a TaskList|Successfull message|200|
 
+<details>
 #### GET taskList/
 Select all the taskLists active on DB:
 
-<details>
-<summary>- Request expected:</summary>
+- Request expected:
 
 No informations required. Just the request.
 
-</details>
-<details>
-<summary>- Reponse expected:</summary>
+- Reponse expected:
 
 ```
 {
@@ -83,7 +81,6 @@ No informations required. Just the request.
 }
 ```
 </details>
-
 #### GET taskList/:id
 Select one taskLists active on DB
 
