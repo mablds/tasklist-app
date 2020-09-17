@@ -45,7 +45,7 @@ After this, you need to run the install script to download all the dependencies 
 The endpoints were created following the instructions of the challenge description.
 
 <details>
-<summary>taskList/</summary>
+<summary>taskList/ - Click to see more</summary>
 
 ### HTTP Communications available:
 |Methods|Routes|Action|Response expected|Status Code|
@@ -177,7 +177,7 @@ Request Params: Valid UUID.
 </details>
 
 <details>
-<summary>tags/</summary>
+<summary>tags/ - Click to see more</summary>
 
 ### HTTP Communications available:
 |Methods|Routes|Action|Response expected|Status Code|
@@ -266,7 +266,7 @@ Params: Valid UUID.
 </details>
 
 <details>
-<summary>tasks/</summary>
+<summary>tasks/ - Click to see more</summary>
 
 ### HTTP Communications available:
 |Methods|Routes|Action|Response expected|Status Code|
