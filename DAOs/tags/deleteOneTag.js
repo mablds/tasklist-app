@@ -8,11 +8,11 @@ module.exports = async (id) => {
     // verify if the id searched really exists. It just try to update. 
     // If the instance doesnt exists, it return success.
     try {
-        const tagToRemove = await database.Tags.findAll({
+        const tagToRemove = await database.Tags.findOne({
             where: { id }
         })
 
-        if(tagToRemove[0].dataValues.active) { //If tag is active...
+        if(tagToRemove.dataValues.active) { //If tag is active...
             try {
                 //Tags table
                 await database.Tags.update(

@@ -4,11 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node app.js",
-    "migrate": "npx sequelize-cli db:migrate",
-    "migrate-undo": "npx sequelize-cli db:migrate:undo:all",
-    "test": "jest --coverage --verbose"
+    "dev": "cross-env NODE_ENV=development nodemon app.js",
+    "start": "cross-env NODE_ENV=production node app.js",
+    "migrate-all": "cross-env NODE_ENV=production npx sequelize-cli db:migrate & cross-env NODE_ENV=test sequelize-cli db:migrate & cross-env NODE_ENV=development sequelize-cli db:migrate",
+    "migrate-undo-all": "cross-env NODE_ENV=production npx sequelize-cli db:migrate:undo:all & cross-env NODE_ENV=test sequelize-cli db:migrate:undo:all & cross-env NODE_ENV=production sequelize-cli db:migrate:undo:all ",
+    "test": "cross-env NODE_ENV=test jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
   "devDependencies": {
     "cross-env": "^7.0.2",
     "jest": "^26.4.2",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "supertest": "^4.0.2"
   }
 }
