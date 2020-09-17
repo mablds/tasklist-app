@@ -2,7 +2,7 @@
 
 Tasklist API created to complete the job challenge from TIVIT Labs.
 
-This app is hosted on Heroku to test in realtime. But if you want to, you can execute locally this app. But is necessary to setup the .env file with these variables:
+Necessary to setup the .env file with these variables:
 
 ```
 MYSQL_DEV_HOST
@@ -409,4 +409,19 @@ All the logs are stored in a file on logs/. The logger module were created using
 
 ## Tests
 
-Working on progress.
+All the tests were created using Jest and Supertest. To run the unit and integration tests, execute the following command:
+
+```
+npm run test
+```
+
+All the coverage will be displayed on console, and on the files generated on the root project folder coverage/.
+
+
+## Points to improve
+
+Along the development process, these are the main points to improve in the future:
+
+- [ ] Implement transactions to all Sequelize functions.
+- [ ] Improve tests coverage 
+- [ ] Refactor DAOs to single CRUD functions.
