@@ -2,12 +2,12 @@
 const deleteTaskDAO = require('../../DAOs/tasks/deleteTask')
 
 //Tags relations
-const getOneTag = require('../../DAOs/tags/getOneTag')
+const { byId } = require('../../DAOs/tags/getOneTag')
 const deleteTag = require('../../DAOs/tags/deleteOneTag')
 const updateCountTag = require('../../DAOs/tags/updateCountTag')
 
 //TaskTag Relation
-const getTaskTags = require('../../DAOs/taskTags/getOneTaskTag')
+const { byTaskId } = require('../../DAOs/taskTags/getOneTaskTag')
 const deleteTaskTag = require('../../DAOs/taskTags/deleteTaskTag')
 
 //Delete Task Endpoint
@@ -15,12 +15,12 @@ module.exports = async (req, res) => {
     if(req.params.id){
         const taskDeleted = await deleteTaskDAO(req.params.id)
         
-        const taskTagSelect = await getTaskTags(req.params.id)
+        const taskTagSelect = await byTaskId(req.params.id)
         
         taskTagSelect.taskTag.forEach(async el => {
             await deleteTaskTag(el.dataValues.id)
             
-            const selectTag = await getOneTag.byId(el.dataValues.tag_id)
+            const selectTag = await byId(el.dataValues.tag_id)
             
             if(selectTag.tag){
                 selectTag.tag.forEach(async el2 => {

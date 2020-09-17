@@ -5,13 +5,8 @@ const app = config.setUpServer()
 let uuidTask;
 let uuidToTestTaskList;
 
-let taskToUpdate = {
-
-}
-
-
 describe("Testing Tasks endpoints", () => {
-    jest.retryTimes(2);
+    jest.setTimeout(10000);
 
     describe("POST - tasks/", () => {
         it("should create a task and return status code 201", async() => {

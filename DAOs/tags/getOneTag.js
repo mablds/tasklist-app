@@ -25,12 +25,7 @@ module.exports.byName = async (name) => {
 module.exports.byId = async (id) => {
     try {
         const tags = await database.Tags.findAll({
-            where: {    
-                [Op.and]: [
-                    { id },
-                    { active: true }
-                ]
-            }
+            where: { id, active: true }
         });
 
         if(tags.length > 0) {

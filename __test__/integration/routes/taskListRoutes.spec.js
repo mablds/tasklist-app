@@ -6,8 +6,6 @@ let uuidToTest;
 
 describe("Testing TaskList endpoints", () => {
     jest.setTimeout(10000);
-    jest.retryTimes(2);
-    
     describe("GET - taskList/", () => {
         it("should return all taskLists and status code 200", async() => {
             return request(app)
