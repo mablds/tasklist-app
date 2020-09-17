@@ -8,6 +8,7 @@ Tasklist API created to complete the job challenge from TIVIT Labs. Main technol
 - Mysql (Clever Cloud free DBs)
 - Winston / Morgan
 - Jest
+- Docker
 
 Necessary to setup the .env file with these variables:
 
