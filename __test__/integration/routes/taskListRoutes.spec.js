@@ -5,9 +5,11 @@ const app = config.setUpServer()
 let uuidToTest;
 
 describe("Testing TaskList endpoints", () => {
+    jest.setTimeout(10000);
+    jest.retryTimes(2);
     
     describe("GET - taskList/", () => {
-        it("should return all taskLists and status code 200", () => {
+        it("should return all taskLists and status code 200", async() => {
             return request(app)
                 .get('/taskList')
                 .then((response) => {
@@ -17,19 +19,19 @@ describe("Testing TaskList endpoints", () => {
     })
 
     describe("POST - taskList/", () => {
-        it("should create a taskList and return status code 201", () => {
+        it("should create a taskList and return status code 201", async() => {
             return request(app)
                 .post('/taskList')
                 .send({name: 'Supertest integration test'})
                 .then((response) => {
-                    uuidToTest = (response.body.taskList.id)
+                    uuidToTest = response.body.taskList.id
                     expect(response.statusCode).toBe(201);
                 })
         })
     })
 
     describe("GET - taskList/:id", () => {
-        it("should return one taskList and status code 200", () => {
+        it("should return one taskList and status code 200", async () => {
             return request(app)
                 .get(`/taskList/${uuidToTest}`)
                 .then((response) => {
@@ -39,7 +41,7 @@ describe("Testing TaskList endpoints", () => {
     })
 
     describe("PUT - taskList/:id", () => {
-        it("should update one taskList and return 200", () => {
+        it("should update one taskList and return 200", async () => {
             return request(app)
                 .put(`/taskList/${uuidToTest}`)
                 .send({name: 'Supertest update test'})
@@ -50,7 +52,7 @@ describe("Testing TaskList endpoints", () => {
     })
 
     describe("DELETE - taskList/:id", () => {
-        it("should update one taskList and return 200", () => {
+        it("should delete one taskList and return 200", async () => {
             return request(app)
                 .delete(`/taskList/${uuidToTest}`)
                 .then((response) => {
