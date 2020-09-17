@@ -6,16 +6,16 @@ const createTag = require('../../DAOs/tags/createOneTag')
 const deleteTag = require('../../DAOs/tags/deleteOneTag')
 
 //TaskTag Relation
-const getTaskTags = require('../../DAOs/taskTags/getOneTaskTag')
+const { byTaskId } = require('../../DAOs/taskTags/getOneTaskTag')
 const createTaskTag = require('../../DAOs/taskTags/createTaskTag')
 
 //Delete Task Endpoint
 module.exports = async (req, res) => {
-    if(req.body.tags.length > 0) {//If has tags on the body obj to update
+    if(req.body.tags && req.body.tags.length > 0) {//If has tags on the body obj to update
         const taskId = req.params.id;
 
         //Delete the previous tags
-        const taskTagsAssociated = await getTaskTags.byTaskId(taskId)
+        const taskTagsAssociated = await byTaskId(taskId)
         taskTagsAssociated.taskTag.forEach(async element => {
             await deleteTag(element.dataValues.tag_id)
         });
