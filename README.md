@@ -1,6 +1,13 @@
 # tasklist-app
 
-Tasklist API created to complete the job challenge from TIVIT Labs.
+Tasklist API created to complete the job challenge from TIVIT Labs. Main technologies used to build this app:
+
+- Node.js
+- Express
+- Sequelize
+- Mysql (Clever Cloud free DBs)
+- Winston / Morgan
+- Jest
 
 Necessary to setup the .env file with these variables:
 
